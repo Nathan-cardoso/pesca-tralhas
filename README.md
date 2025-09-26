@@ -3,8 +3,12 @@ O jogo Pesca Tralhas trata-se de uma proposta divertida que, ao mesmo tempo, lev
 
 ### Documento de Requisitos 
 
-* <a href="https://docs.google.com/document/d/19AD7eI-OLuJDqzfCT9H19qWbo9fxjCyuHN3CRTVwFOU/edit?usp=sharing">Documento de Requisitos</a>
+* <a href="https://docs.google.com/document/d/19AD7eI-OLuJDqzfCT9H19qWbo9fxjCyuHN3CRTVwFOU/edit?usp=sharing" target="_blank" >Documento de Requisitos</a>
 
 ### Diagrama de Caso de Uso 
 
-* <a href="https://lucid.app/lucidchart/8c2fc37f-03bd-476c-b8ae-501926bcc09b/edit?viewport_loc=2085%2C-14%2C2847%2C1402%2C0_0&invitationId=inv_2c7571b4-d2bf-4174-a650-f17e11aa1703">Diagrama de Caso de Uso</a>
+* <a href="https://lucid.app/lucidchart/8c2fc37f-03bd-476c-b8ae-501926bcc09b/edit?viewport_loc=2085%2C-14%2C2847%2C1402%2C0_0&invitationId=inv_2c7571b4-d2bf-4174-a650-f17e11aa1703" target="_blank" >Diagrama de Caso de Uso</a>
+
+### Plano de Teste
+
+* <a href="https://docs.google.com/document/d/1FO-ZlrtynUhW5ADhvnJKIJnZVRrD4iLVByj1ySucxtA/edit?usp=sharing" target="_blank">
