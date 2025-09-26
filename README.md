@@ -11,4 +11,4 @@ O jogo Pesca Tralhas trata-se de uma proposta divertida que, ao mesmo tempo, lev
 
 ### Plano de Teste
 
-* <a href="https://docs.google.com/document/d/1FO-ZlrtynUhW5ADhvnJKIJnZVRrD4iLVByj1ySucxtA/edit?usp=sharing" target="_blank">
+* <a href="https://docs.google.com/document/d/1FO-ZlrtynUhW5ADhvnJKIJnZVRrD4iLVByj1ySucxtA/edit?usp=sharing" target="_blank"> Plano de teste </a>
