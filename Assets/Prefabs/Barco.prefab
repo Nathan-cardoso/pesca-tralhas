@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6788452510989646323}
   - component: {fileID: 2832924323066982246}
   - component: {fileID: 195319108170339251}
-  - component: {fileID: 7131618339743381707}
+  - component: {fileID: 2817777776101137753}
   m_Layer: 0
   m_Name: Barco
   m_TagString: Untagged
@@ -112,6 +112,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdbd22852842aa8409af76203015a785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoatController
+  life: 5
+  score: 0
+  speed: 45
 --- !u!65 &195319108170339251
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -131,9 +134,9 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.1071382, y: 0.17342119, z: 0.30473968}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &7131618339743381707
+  m_Size: {x: 0.10713821, y: 0.17393516, z: 0.30473968}
+  m_Center: {x: 0, y: -0.00025688708, z: 0}
+--- !u!54 &2817777776101137753
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -155,8 +158,8 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 28
+  m_Constraints: 0
   m_CollisionDetection: 0

@@ -3,20 +3,23 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    // [SerializeField] private int life = 5;
+    [SerializeField] private int life = 5;
+
+    [SerializeField] private int score = 0;
+
     [SerializeField] private float speed = 45f;
     private int xLimit = 90;
-    
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start(){}
+    void Start() { }
 
     // Update is called once per frame
     void Update()
     {
         MovePlayer();
     }
-    
+
     void MovePlayer()
     {
         if (transform.position.x <= -xLimit)
@@ -31,4 +34,23 @@ public class PlayerController : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Obstacle"))
+        {
+            life--;
+            Destroy(other.gameObject);
+        }
+        else if (other.gameObject.CompareTag("Collectible"))
+        {
+            score += 10;
+            Destroy(other.gameObject);
+        }
+    }
+
+
+
+
+
 }
