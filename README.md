@@ -1,5 +1,5 @@
 ## Pesca Tralhas
-No jogo Pesca Tralhas, o jogador controla um barco que navega por um rio com o objetivo de recolher lixo. Em uma perspectiva 2D, o jogo apresenta uma representação lateral do barco, onde, por meio do uso de uma rede, é feita a coleta do lixo, presente na superfície da água. Essa coleta occore por meio do movimento de subida e descida na tela, feito pelo barco.
+No jogo Pesca Tralhas, o jogador controla um barco que navega por um rio com o objetivo de recolher lixo. Em uma perspectiva Side Scrolling, o jogo apresenta uma representação lateral do barco, onde, por meio do uso de uma rede, é feita a coleta do lixo, presente na superfície da água. Essa coleta occore por meio do movimento de subida e descida na tela, feito pelo barco.
 
 Tratando-se de uma proposta divertida que, ao mesmo tempo, promove uma conscientização sobre os impactos que a poluição causa e a importância da conscientização ambiental. O jogo segue alguns dos ODSs (Objetivos de Desenvolvimento Sustentável), sendo eles o Vida na Água, Água Potável e Saneamento e Ação contra a Mudança Global do Clima. 
 
