@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2606311961885231400}
   - component: {fileID: 717403758026583213}
+  - component: {fileID: 652618609043788536}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -57,3 +58,24 @@ MonoBehaviour:
   - {fileID: 3752377644676007330, guid: 8a41316128bdc694a9ce6d084f265a1f, type: 3}
   spawnInterval: 2
   xSpawnVariation: 85
+  isGameOver: 0
+  playerController: {fileID: 0}
+--- !u!114 &652618609043788536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3770464772104844122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8a67738eab361f4db02b44a7ece37b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UiController
+  playerController: {fileID: 0}
+  scoreText: {fileID: 0}
+  lifeText: {fileID: 0}
+  gameOverText: {fileID: 0}
+  life: 0
+  score: 0
+  gameManager: {fileID: 717403758026583213}

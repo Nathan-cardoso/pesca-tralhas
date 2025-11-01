@@ -8,7 +8,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int score = 0;
 
     [SerializeField] private float speed = 45f;
+    [SerializeField] GameManager gameManager;
     private int xLimit = 90;
+    
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -17,7 +19,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MovePlayer();
+        if (!gameManager.GetGameOver())
+        {
+            MovePlayer();
+        }
     }
 
     void MovePlayer()
@@ -31,26 +36,35 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(xLimit, transform.position.y, transform.position.z);
         }
 
-        float horizontalInput = Input.GetAxis("Horizontal");
-        transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
+        float verticalInput = Input.GetAxis("Vertical");
+        transform.Translate(Vector3.right * Time.deltaTime * speed * verticalInput);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Obstacle"))
+        if (!gameManager.GetGameOver())
         {
-            life--;
-            Destroy(other.gameObject);
-        }
-        else if (other.gameObject.CompareTag("Collectible"))
-        {
-            score += 10;
-            Destroy(other.gameObject);
+            if (other.gameObject.CompareTag("Obstacle"))
+            {
+                life--;
+                Destroy(other.gameObject);
+            }
+            else if (other.gameObject.CompareTag("Collectible"))
+            {
+                score += 10;
+                Destroy(other.gameObject);
+            }
         }
     }
 
-
-
-
+    public int GetLife()
+    {
+        return life;
+    }
+    
+    public int GetScore()
+    {
+        return score;
+    }
 
 }

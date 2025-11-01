@@ -1,3 +1,5 @@
+using System;
+using NUnit.Framework;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -6,6 +8,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject[] spawnPrefabs;
     [SerializeField] private float spawnInterval = 2f;
     [SerializeField] private float xSpawnVariation = 85;
+    [SerializeField] private bool isGameOver = false;
+    [SerializeField] PlayerController playerController;
     private float zSpawnPos = -250f;
 
 
@@ -17,19 +21,35 @@ public class GameManager : MonoBehaviour
 
     void SpawnRandom()
     {
-        if (spawnPrefabs.Length == 0)
+        if (!isGameOver)
         {
-            Debug.LogWarning("Nenhum prefab configurado no Spawner!");
-            return;
+            if (spawnPrefabs.Length == 0)
+            {
+                Debug.LogWarning("Nenhum prefab configurado no Spawner!");
+                return;
+            }
+
+            // Escolhe um prefab aleatoriamente
+            int index = UnityEngine.Random.Range(0, spawnPrefabs.Length);
+
+            // Define posição aleatória
+            Vector3 spawnPos = new Vector3(UnityEngine.Random.Range(xSpawnVariation, -xSpawnVariation), spawnPrefabs[index].transform.position.y, zSpawnPos);
+
+            // Instancia
+            Instantiate(spawnPrefabs[index], spawnPos, spawnPrefabs[index].transform.rotation);
         }
+    }
 
-        // Escolhe um prefab aleatoriamente
-        int index = Random.Range(0, spawnPrefabs.Length);
-
-        // Define posição aleatória
-        Vector3 spawnPos = new Vector3(Random.Range(xSpawnVariation, -xSpawnVariation), spawnPrefabs[index].transform.position.y, zSpawnPos);
-
-        // Instancia
-        Instantiate(spawnPrefabs[index], spawnPos, spawnPrefabs[index].transform.rotation);
+    void Update()
+    {
+        if (playerController.GetLife() <= 0)
+        {
+            isGameOver = true;
+        }
+    }
+    
+    public bool GetGameOver()
+    {
+        return isGameOver;
     }
 }

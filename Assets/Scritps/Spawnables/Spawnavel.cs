@@ -7,8 +7,10 @@ public class Spawnavel : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
+
         MoveLeft();
         DestroyOutBounds();
+        
     }
 
     void MoveLeft()
