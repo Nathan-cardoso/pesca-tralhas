@@ -45,10 +45,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   spawnPrefabs:
-  - {fileID: 9142587095593841124, guid: 2844cc6bf5aa8f24bacdb1c2235b7242, type: 3}
-  - {fileID: 1127100862212535146, guid: 0b1b6a61b21a23e4d90e69283ac8e9b0, type: 3}
-  - {fileID: 210042519288411764, guid: 27fb141006d686e4ebc6c74c1d05c4af, type: 3}
-  - {fileID: 7815480797451976456, guid: aceb602bc65c3c441bea41f57c5e0b56, type: 3}
-  - {fileID: 8931327138929063098, guid: 7e9e72bff44c619478a1fb63305c0802, type: 3}
+  - {fileID: 3445752528753996530, guid: fb053e33c9ee0a64e83feba6961d33b2, type: 3}
+  - {fileID: 5961019071863848060, guid: ff02e2368fb8ed3499f026b1e8dbc687, type: 3}
+  - {fileID: 6274177713302961289, guid: 8d9d48b7f227c25419aaf5c864b9c9e2, type: 3}
+  - {fileID: 6926290947502395709, guid: 6aba8bc7d29859e43b4217b1137dbb9b, type: 3}
+  - {fileID: 8026613264121847984, guid: 12a473d31419f76458d05b526a511e08, type: 3}
+  - {fileID: 790301943785931260, guid: 14c80ba31fc4ffe48b2781e894755ab7, type: 3}
+  - {fileID: 1196824910438408277, guid: b706da55a0011f742b91fd9844763b5e, type: 3}
+  - {fileID: 8767031042257173656, guid: 8797f35a8b44c0f46acfc6a25f8f0bb8, type: 3}
+  - {fileID: 3344274581015921583, guid: 25665184ae9b4984bab0b124484c4f94, type: 3}
+  - {fileID: 3752377644676007330, guid: 8a41316128bdc694a9ce6d084f265a1f, type: 3}
   spawnInterval: 2
   xSpawnVariation: 85

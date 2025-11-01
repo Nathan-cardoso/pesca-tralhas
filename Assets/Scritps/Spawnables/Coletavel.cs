@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Collectible : Spawnable
+public class Coletavel : Spawnavel
 {
     // Lógica do Coletável
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Spawnable : MonoBehaviour
+public class Spawnavel : MonoBehaviour
 {
     [SerializeField] float speed = 20f;
 
@@ -13,7 +13,9 @@ public class Spawnable : MonoBehaviour
 
     void MoveLeft()
     {
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        Vector3 pos = transform.position;
+        pos.z += speed * Time.deltaTime;
+        transform.position = pos;
     }
 
     void DestroyOutBounds()

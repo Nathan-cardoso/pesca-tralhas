@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Obstacle : Spawnable
+public class Obstaculo : Spawnavel
 {
     // Lógica do Obstaculo
 }

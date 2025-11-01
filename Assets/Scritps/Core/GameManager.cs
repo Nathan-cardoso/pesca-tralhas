@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float spawnInterval = 2f;
     [SerializeField] private float xSpawnVariation = 85;
     private float zSpawnPos = -250f;
-    private float ySpawnPos = 2.5f;
 
 
     void Start()
@@ -15,7 +14,7 @@ public class GameManager : MonoBehaviour
         // Nome do metodo, tempo para começar e intervalo de spawn.
         InvokeRepeating(nameof(SpawnRandom), 2f, spawnInterval);
     }
-    
+
     void SpawnRandom()
     {
         if (spawnPrefabs.Length == 0)
@@ -28,9 +27,9 @@ public class GameManager : MonoBehaviour
         int index = Random.Range(0, spawnPrefabs.Length);
 
         // Define posição aleatória
-        Vector3 spawnPos = new Vector3(Random.Range(xSpawnVariation, -xSpawnVariation), ySpawnPos , zSpawnPos);
+        Vector3 spawnPos = new Vector3(Random.Range(xSpawnVariation, -xSpawnVariation), spawnPrefabs[index].transform.position.y, zSpawnPos);
 
         // Instancia
-        Instantiate(spawnPrefabs[index], spawnPos, Quaternion.identity);
+        Instantiate(spawnPrefabs[index], spawnPos, spawnPrefabs[index].transform.rotation);
     }
 }
