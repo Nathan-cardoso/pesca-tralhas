@@ -2,10 +2,9 @@ using UnityEngine;
 
 public class TextureScroller : MonoBehaviour
 {
-    private float scrollSpeed = 0.1f;
+    private float scrollSpeed = 0.03f;
     private Renderer rend;
     private Vector2 currentOffset = Vector2.zero;
-    [SerializeField] GameManager gameManager;
 
     // A função Awake é executada antes da execução do projeto, funcionando inclusive antes da função start.
     void Awake()
@@ -15,10 +14,7 @@ public class TextureScroller : MonoBehaviour
 
     void Update()
     {
-        if (!gameManager.GetGameOver())
-        {
-            RiverScroll();
-        }
+        RiverScroll();
     }
 
     void RiverScroll()

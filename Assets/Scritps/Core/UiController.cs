@@ -1,20 +1,69 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class UiController : MonoBehaviour
 {
-
+    // Scripts
     [SerializeField] private PlayerController playerController;
-    [SerializeField] private TMP_Text scoreText;
-    [SerializeField] private TMP_Text lifeText;
-    [SerializeField] private TMP_Text gameOverText;
-    [SerializeField] private int life;
-    [SerializeField] private int score;
-    [SerializeField] GameManager gameManager;
+    [SerializeField] private GameManager gameManager;
 
-    void Start()
+
+    [Header("Canvas")]
+    [SerializeField] private GameObject mainMenuCanvas;
+    [SerializeField] private Button startButton;
+
+
+    [Header("HUD")]
+    [SerializeField] private GameObject hudCanvas;
+    [SerializeField] private TMP_Text lifeText;
+    [SerializeField] private TMP_Text scoreText;
+
+    [Header("Game Over")]
+    [SerializeField] private GameObject gameOverCanvas;
+    [SerializeField] private TMP_Text gameOverScoreText;
+    [SerializeField] private Button retryButton;
+
+    void Awake()
     {
-        gameOverText.enabled = false;
+        gameManager = FindFirstObjectByType<GameManager>();
+
+        startButton.onClick.AddListener(OnPlayPressed);
+        retryButton.onClick.AddListener(OnRetryPressed);
+
+        ShowMainMenu();
+    }
+
+    public void ShowMainMenu()
+    {
+        mainMenuCanvas.SetActive(true);
+        hudCanvas.SetActive(false);
+        gameOverCanvas.SetActive(false);
+    }
+
+    public void ShowHUD()
+    {
+        mainMenuCanvas.SetActive(false);
+        hudCanvas.SetActive(true);
+        gameOverCanvas.SetActive(false);
+    }
+
+    public void ShowGameOver()
+    {
+        gameOverScoreText.text = "Pontuação: " + playerController.GetScore();
+        mainMenuCanvas.SetActive(false);
+        hudCanvas.SetActive(false);
+        gameOverCanvas.SetActive(true);
+    }
+
+    private void OnPlayPressed()
+    {
+        gameManager.StartGame();
+    }
+
+    private void OnRetryPressed()
+    {
+        gameManager.RestartGame();
     }
 
     void Update()
@@ -23,11 +72,6 @@ public class UiController : MonoBehaviour
         {
             lifeText.text = "Vidas: " + playerController.GetLife();
             scoreText.text = "Pontos: " + playerController.GetScore();
-        }
-        else
-        {
-            gameOverText.enabled = true;
-        }
-        
+        }     
     }
 }

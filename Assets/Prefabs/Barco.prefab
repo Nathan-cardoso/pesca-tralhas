@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.0017628035, z: 0, w: 0.9999985}
   m_LocalPosition: {x: -1.7313614, y: 21, z: 100}
-  m_LocalScale: {x: 160, y: 160, z: 160}
+  m_LocalScale: {x: 180, y: 180, z: 180}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -115,6 +115,7 @@ MonoBehaviour:
   life: 5
   score: 0
   speed: 45
+  gameManager: {fileID: 0}
 --- !u!65 &195319108170339251
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -2,15 +2,12 @@ using UnityEngine;
 
 public class Spawnavel : MonoBehaviour
 {
-    [SerializeField] float speed = 20f;
+    [SerializeField] private float speed = 20f;
 
-    // Update is called once per frame
     protected virtual void Update()
     {
-
         MoveLeft();
         DestroyOutBounds();
-        
     }
 
     void MoveLeft()
