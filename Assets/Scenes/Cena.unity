@@ -375,10 +375,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasGameOver
       objectReference: {fileID: 0}
-    - target: {fileID: 429712254008037217, guid: 3238fc5aeeaff1a42a0b6699ef2dd2ec, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2582952672494646176, guid: 3238fc5aeeaff1a42a0b6699ef2dd2ec, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -579,10 +575,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasMainMenu
       objectReference: {fileID: 0}
-    - target: {fileID: 429712254008037217, guid: b9519f4cab389a848bde600f95225d4f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2582952672494646176, guid: b9519f4cab389a848bde600f95225d4f, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -679,10 +671,6 @@ PrefabInstance:
     - target: {fileID: 429712254008037217, guid: 4cc94a5dba1bbf449a4ea3030f03d195, type: 3}
       propertyPath: m_Name
       value: CanvasHud
-      objectReference: {fileID: 0}
-    - target: {fileID: 429712254008037217, guid: 4cc94a5dba1bbf449a4ea3030f03d195, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2582952672494646176, guid: 4cc94a5dba1bbf449a4ea3030f03d195, type: 3}
       propertyPath: m_Pivot.x
@@ -888,7 +876,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5014759098225862015, guid: f7cf0302cd3b22746ad88110bc54bd57, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.5
+      value: 14.5
       objectReference: {fileID: 0}
     - target: {fileID: 5014759098225862015, guid: f7cf0302cd3b22746ad88110bc54bd57, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1051,11 +1039,11 @@ SceneRoots:
   m_Roots:
   - {fileID: 8561123390977233680}
   - {fileID: 410087041}
-  - {fileID: 832575519}
   - {fileID: 8984088462864004249}
   - {fileID: 5468849254694605466}
   - {fileID: 2988643508311974733}
   - {fileID: 2014321851}
   - {fileID: 198663775209447964}
   - {fileID: 823033577}
+  - {fileID: 832575519}
   - {fileID: 449200671}

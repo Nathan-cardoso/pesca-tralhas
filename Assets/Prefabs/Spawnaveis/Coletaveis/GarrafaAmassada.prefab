@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Collectible
   speed: 20
+  score: 5
 --- !u!65 &5271684543173619130
 BoxCollider:
   m_ObjectHideFlags: 0

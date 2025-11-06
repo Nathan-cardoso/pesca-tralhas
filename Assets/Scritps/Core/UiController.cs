@@ -68,10 +68,8 @@ public class UiController : MonoBehaviour
 
     void Update()
     {
-        if (!gameManager.GetGameOver())
-        {
-            lifeText.text = "Vidas: " + playerController.GetLife();
-            scoreText.text = "Pontos: " + playerController.GetScore();
-        }     
+        lifeText.text = "Vidas: " + playerController.GetLife();
+        scoreText.text = "Pontos: " + playerController.GetScore();
     }
+
 }

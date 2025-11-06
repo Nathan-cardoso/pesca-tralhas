@@ -107,8 +107,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.032481838, y: 0.030000001, z: 0.1}
-  m_Center: {x: 0.00008923451, y: 1.0339393e-28, z: -1.0339393e-28}
+  m_Size: {x: 0.03, y: 0.015, z: 0.11}
+  m_Center: {x: 0, y: 0, z: 0.008}
 --- !u!114 &4438702727635677411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,3 +122,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Obstaculo
   speed: 20
+  damage: 2

@@ -1,6 +1,33 @@
 using UnityEngine;
 
-public class Obstaculo : Spawnavel
+public class Obstaculo : MonoBehaviour
 {
-    // Lógica do Obstaculo
+    [SerializeField] private float speed = 20f;
+    [SerializeField] private int damage = 1;
+
+    void Update()
+    {
+        MoveLeft();
+        DestroyOutBounds();
+    }
+
+    void MoveLeft()
+    {
+        Vector3 pos = transform.position;
+        pos.z += speed * Time.deltaTime;
+        transform.position = pos;
+    }
+
+    void DestroyOutBounds()
+    {
+        if (transform.position.z >= 250f)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public int getDamage()
+    {
+        return damage;
+    }
 }

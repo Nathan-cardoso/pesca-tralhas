@@ -8,14 +8,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject[] collectibles;
 
     [Header("Scritps")]
-    [SerializeField] PlayerController playerController;
+    [SerializeField] private PlayerController playerController;
     [SerializeField] private UiController uiController;
     
     [Header("Game Variables")]
     [SerializeField] private float spawnInterval = 2f; 
-    [SerializeField] private bool isGameOver = false;
-    [SerializeField] private bool isGameRunning = false;
-    private float xSpawnVariation = 93;
+    private float xSpawnVariation = 97;
     private float zSpawnPos = -250f;
 
     void Start()
@@ -26,7 +24,6 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        isGameOver = false;
         Time.timeScale = 1f;
         uiController.ShowHUD();   
         
@@ -36,7 +33,6 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        isGameOver = true;
         Time.timeScale = 0f;
         uiController.ShowGameOver(); 
     }
@@ -48,41 +44,37 @@ public class GameManager : MonoBehaviour
 
     void SpawnRandom()
     {
-        if (!isGameOver)
+        if (obstacles.Length == 0 || collectibles.Length == 0)
         {
-            if (obstacles.Length == 0 || collectibles.Length == 0)
-            {
-                Debug.LogWarning("Nenhum obstáculo ou coletável foi configurado no Spawner!");
-                return;
-            }
+            Debug.LogWarning("Nenhum obstáculo ou coletável foi configurado no Spawner!");
+            return;
+        }
 
-            int index;
+        int index;
 
-            // 40% de chance de spawnar um coletável
-            // 60% de chance de spawnar um obstáculo
-            if (UnityEngine.Random.Range(0, 10) <= 3)
-            {
-                // Seleciona um coletável aleatóriamente
-                index = UnityEngine.Random.Range(0, collectibles.Length);
+        // 50% de chance de spawnar um coletável
+        // 50% de chance de spawnar um obstáculo
+        if (UnityEngine.Random.Range(0, 10) <= 4)
+        {
+            // Seleciona um coletável aleatóriamente
+            index = UnityEngine.Random.Range(0, collectibles.Length);
 
-                // Define um posição de spawn aleatória
-                Vector3 spawnPos = new Vector3(UnityEngine.Random.Range(xSpawnVariation, -(xSpawnVariation + 15)), collectibles[index].transform.position.y, zSpawnPos);
+            // Define um posição de spawn aleatória
+            Vector3 spawnPos = new Vector3(UnityEngine.Random.Range(xSpawnVariation, -(xSpawnVariation + 15)), collectibles[index].transform.position.y, zSpawnPos);
 
-                // Cria a instancia
-                Instantiate(collectibles[index], spawnPos, collectibles[index].transform.rotation);
-            }
-            else
-            {
-                // Seleciona um obstáculo aleatóriamente
-                index = UnityEngine.Random.Range(0, obstacles.Length);
+            // Cria a instancia
+            Instantiate(collectibles[index], spawnPos, collectibles[index].transform.rotation);
+        }
+        else
+        {
+            // Seleciona um obstáculo aleatóriamente
+            index = UnityEngine.Random.Range(0, obstacles.Length);
 
-                // Define um posição de spawn aleatória
-                Vector3 spawnPos = new Vector3(UnityEngine.Random.Range(xSpawnVariation, -(xSpawnVariation + 15)), obstacles[index].transform.position.y, zSpawnPos);
+            // Define um posição de spawn aleatória
+            Vector3 spawnPos = new Vector3(UnityEngine.Random.Range(xSpawnVariation, -(xSpawnVariation + 15)), obstacles[index].transform.position.y, zSpawnPos);
 
-                // Cria a instancia
-                Instantiate(obstacles[index], spawnPos, obstacles[index].transform.rotation);
-            }
-
+            // Cria a instancia
+            Instantiate(obstacles[index], spawnPos, obstacles[index].transform.rotation);
         }
     }
 
@@ -92,10 +84,5 @@ public class GameManager : MonoBehaviour
         {
             GameOver();
         }
-    }
-    
-    public bool GetGameOver()
-    {
-        return isGameOver;
     }
 }

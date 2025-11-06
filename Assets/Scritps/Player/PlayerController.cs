@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,9 +10,21 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float speed = 45f;
     [SerializeField] GameManager gameManager;
-    
+
     private int xLimit = 95;
-    
+    private CharacterController characterController;
+    private Vector2 moveInput;
+    private Vector3 velocity;
+
+    void Start()
+    {
+        characterController = GetComponent<CharacterController>();
+    }
+
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        moveInput = context.ReadValue<Vector2>();
+    }   
 
     void Update()
     {
@@ -29,24 +42,23 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(xLimit, transform.position.y, transform.position.z);
         }
 
-        float verticalInput = Input.GetAxis("Vertical");
+        float verticalInput = moveInput.x;
         transform.Translate(Vector3.right * Time.deltaTime * speed * verticalInput);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!gameManager.GetGameOver())
+        if (other.gameObject.CompareTag("Obstacle"))
         {
-            if (other.gameObject.CompareTag("Obstacle"))
-            {
-                life--;
-                Destroy(other.gameObject);
-            }
-            else if (other.gameObject.CompareTag("Collectible"))
-            {
-                score += 10;
-                Destroy(other.gameObject);
-            }
+            Obstaculo obstaculoScript = other.GetComponent<Obstaculo>();
+            life -= obstaculoScript.getDamage();
+            Destroy(other.gameObject);
+        }
+        else if (other.gameObject.CompareTag("Collectible"))
+        {
+            Coletavel coletavelScritp = other.GetComponent<Coletavel>();
+            score += (int)coletavelScritp.getScore();
+            Destroy(other.gameObject);
         }
     }
 

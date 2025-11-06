@@ -55,7 +55,6 @@ MonoBehaviour:
   - {fileID: 5961019071863848060, guid: ff02e2368fb8ed3499f026b1e8dbc687, type: 3}
   - {fileID: 6274177713302961289, guid: 8d9d48b7f227c25419aaf5c864b9c9e2, type: 3}
   - {fileID: 6926290947502395709, guid: 6aba8bc7d29859e43b4217b1137dbb9b, type: 3}
-  - {fileID: 8026613264121847984, guid: 12a473d31419f76458d05b526a511e08, type: 3}
   - {fileID: 790301943785931260, guid: 14c80ba31fc4ffe48b2781e894755ab7, type: 3}
   playerController: {fileID: 0}
   uiController: {fileID: 652618609043788536}
