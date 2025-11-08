@@ -4,6 +4,11 @@ public class Coletavel : MonoBehaviour
 {
     [SerializeField] private float speed = 20f;
     [SerializeField] private int score = 10; 
+    private GameManager gameManager;
+    void Awake()
+    {
+        gameManager = FindAnyObjectByType<GameManager>();
+    }
 
     void Update()
     {
@@ -14,7 +19,7 @@ public class Coletavel : MonoBehaviour
     void MoveLeft()
     {
         Vector3 pos = transform.position;
-        pos.z += speed * Time.deltaTime;
+        pos.z += speed * Time.deltaTime * gameManager.GetGameSpeed();
         transform.position = pos;
     }
 

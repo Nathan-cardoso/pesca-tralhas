@@ -58,9 +58,8 @@ MonoBehaviour:
   - {fileID: 790301943785931260, guid: 14c80ba31fc4ffe48b2781e894755ab7, type: 3}
   playerController: {fileID: 0}
   uiController: {fileID: 652618609043788536}
-  spawnInterval: 2
-  isGameOver: 0
-  isGameRunning: 0
+  spawnInterval: 3
+  gameSpeed: 1
 --- !u!114 &652618609043788536
 MonoBehaviour:
   m_ObjectHideFlags: 0

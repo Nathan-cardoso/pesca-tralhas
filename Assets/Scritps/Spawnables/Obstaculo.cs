@@ -5,6 +5,11 @@ public class Obstaculo : MonoBehaviour
     [SerializeField] private float speed = 20f;
     [SerializeField] private int damage = 1;
 
+    private GameManager gameManager;
+    void Awake()
+    {
+        gameManager = FindAnyObjectByType<GameManager>();
+    }
     void Update()
     {
         MoveLeft();
@@ -14,7 +19,7 @@ public class Obstaculo : MonoBehaviour
     void MoveLeft()
     {
         Vector3 pos = transform.position;
-        pos.z += speed * Time.deltaTime;
+        pos.z += speed * Time.deltaTime * gameManager.GetGameSpeed();
         transform.position = pos;
     }
 

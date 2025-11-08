@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections; // ← Necessário para usar corrotinas
 
 public class GameManager : MonoBehaviour
 {
@@ -7,39 +8,71 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject[] obstacles;
     [SerializeField] private GameObject[] collectibles;
 
-    [Header("Scritps")]
+    [Header("Scripts")]
     [SerializeField] private PlayerController playerController;
     [SerializeField] private UiController uiController;
-    
+
     [Header("Game Variables")]
-    [SerializeField] private float spawnInterval = 2f; 
-    private float xSpawnVariation = 97;
+    [SerializeField] private float spawnInterval = 3f; 
+    private float xSpawnVariation = 97f;
     private float zSpawnPos = -250f;
+    [SerializeField] private float gameSpeed = 1f;    
+
+    // Referências às corrotinas (para parar quando o jogo acabar)
+    private Coroutine spawnCoroutine;
+    private Coroutine speedCoroutine;
 
     void Start()
     {
-        Time.timeScale = 0f;           
-        uiController.ShowMainMenu();     
+        Time.timeScale = 0f;
+        uiController.ShowMainMenu();
     }
 
     public void StartGame()
     {
         Time.timeScale = 1f;
-        uiController.ShowHUD();   
-        
-        // Nome do metodo, tempo para começar e intervalo de spawn.
-        InvokeRepeating(nameof(SpawnRandom), 2f, spawnInterval); 
+        uiController.ShowHUD();
+
+        // Inicia as corrotinas de spawn e aumento de velocidade
+        spawnCoroutine = StartCoroutine(SpawnRoutine());
+        speedCoroutine = StartCoroutine(UpdateSpeedRoutine());
     }
 
     public void GameOver()
     {
         Time.timeScale = 0f;
-        uiController.ShowGameOver(); 
+        uiController.ShowGameOver();
+
+        // Para as corrotinas ao encerrar o jogo
+        if (spawnCoroutine != null) StopCoroutine(spawnCoroutine);
+        if (speedCoroutine != null) StopCoroutine(speedCoroutine);
     }
-    
+
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private IEnumerator SpawnRoutine()
+    {
+        yield return new WaitForSeconds(2f); // Espera inicial (equivalente ao primeiro delay do InvokeRepeating)
+
+        while (true)
+        {
+            SpawnRandom();
+            yield return new WaitForSeconds(spawnInterval);
+        }
+    }
+
+    private IEnumerator UpdateSpeedRoutine()
+    {
+        yield return new WaitForSeconds(2f); // Espera inicial
+
+        while (true)
+        {
+            yield return new WaitForSeconds(1f); // Intervalo de aumento da velocidade
+            UpdateSpeed();
+        }
     }
 
     void SpawnRandom()
@@ -51,29 +84,26 @@ public class GameManager : MonoBehaviour
         }
 
         int index;
+        bool spawnCollectible = UnityEngine.Random.Range(0, 10) <= 4;
 
-        // 50% de chance de spawnar um coletável
-        // 50% de chance de spawnar um obstáculo
-        if (UnityEngine.Random.Range(0, 10) <= 4)
+        if (spawnCollectible)
         {
-            // Seleciona um coletável aleatóriamente
             index = UnityEngine.Random.Range(0, collectibles.Length);
-
-            // Define um posição de spawn aleatória
-            Vector3 spawnPos = new Vector3(UnityEngine.Random.Range(xSpawnVariation, -(xSpawnVariation + 15)), collectibles[index].transform.position.y, zSpawnPos);
-
-            // Cria a instancia
+            Vector3 spawnPos = new Vector3(
+                UnityEngine.Random.Range(-(xSpawnVariation + 15), xSpawnVariation),
+                collectibles[index].transform.position.y,
+                zSpawnPos
+            );
             Instantiate(collectibles[index], spawnPos, collectibles[index].transform.rotation);
         }
         else
         {
-            // Seleciona um obstáculo aleatóriamente
             index = UnityEngine.Random.Range(0, obstacles.Length);
-
-            // Define um posição de spawn aleatória
-            Vector3 spawnPos = new Vector3(UnityEngine.Random.Range(xSpawnVariation, -(xSpawnVariation + 15)), obstacles[index].transform.position.y, zSpawnPos);
-
-            // Cria a instancia
+            Vector3 spawnPos = new Vector3(
+                UnityEngine.Random.Range(-(xSpawnVariation + 15), xSpawnVariation),
+                obstacles[index].transform.position.y,
+                zSpawnPos
+            );
             Instantiate(obstacles[index], spawnPos, obstacles[index].transform.rotation);
         }
     }
@@ -84,5 +114,22 @@ public class GameManager : MonoBehaviour
         {
             GameOver();
         }
+    }
+
+    public void UpdateSpeed()
+    {
+        if (gameSpeed < 5.0f)
+        {
+            if(spawnInterval > 0.4f)
+            {
+                spawnInterval -= 0.01f;
+            }
+            gameSpeed += 0.01f;
+        }
+    }
+
+    public float GetGameSpeed()
+    {
+        return gameSpeed;
     }
 }
