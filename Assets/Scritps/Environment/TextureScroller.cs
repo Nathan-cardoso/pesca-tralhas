@@ -6,6 +6,7 @@ public class TextureScroller : MonoBehaviour
     private Renderer rend;
     private Vector2 currentOffset = Vector2.zero;
     private GameManager gameManager;
+
     // A função Awake é executada antes da execução do projeto, funcionando inclusive antes da função start.
     void Awake()
     {

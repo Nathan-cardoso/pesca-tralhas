@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections; // ← Necessário para usar corrotinas
+using System.Collections; 
 
 public class GameManager : MonoBehaviour
 {
@@ -14,11 +14,9 @@ public class GameManager : MonoBehaviour
 
     [Header("Game Variables")]
     [SerializeField] private float spawnInterval = 3f; 
-    private float xSpawnVariation = 97f;
-    private float zSpawnPos = -250f;
     [SerializeField] private float gameSpeed = 1f;    
-
-    // Referências às corrotinas (para parar quando o jogo acabar)
+    private float xSpawnVariation = 95f;
+    private float zSpawnPos = -250f;
     private Coroutine spawnCoroutine;
     private Coroutine speedCoroutine;
 
@@ -55,7 +53,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator SpawnRoutine()
     {
-        yield return new WaitForSeconds(2f); // Espera inicial (equivalente ao primeiro delay do InvokeRepeating)
+        yield return new WaitForSeconds(2f);
 
         while (true)
         {
@@ -66,12 +64,12 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator UpdateSpeedRoutine()
     {
-        yield return new WaitForSeconds(2f); // Espera inicial
+        yield return new WaitForSeconds(2f); 
 
         while (true)
         {
             yield return new WaitForSeconds(1f); // Intervalo de aumento da velocidade
-            UpdateSpeed();
+            IncreaseGameDifficulty();
         }
     }
 
@@ -90,7 +88,7 @@ public class GameManager : MonoBehaviour
         {
             index = UnityEngine.Random.Range(0, collectibles.Length);
             Vector3 spawnPos = new Vector3(
-                UnityEngine.Random.Range(-(xSpawnVariation + 15), xSpawnVariation),
+                UnityEngine.Random.Range(-(xSpawnVariation + 10), xSpawnVariation),
                 collectibles[index].transform.position.y,
                 zSpawnPos
             );
@@ -100,7 +98,7 @@ public class GameManager : MonoBehaviour
         {
             index = UnityEngine.Random.Range(0, obstacles.Length);
             Vector3 spawnPos = new Vector3(
-                UnityEngine.Random.Range(-(xSpawnVariation + 15), xSpawnVariation),
+                UnityEngine.Random.Range(-(xSpawnVariation + 10), xSpawnVariation),
                 obstacles[index].transform.position.y,
                 zSpawnPos
             );
@@ -116,7 +114,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void UpdateSpeed()
+    public void IncreaseGameDifficulty()
     {
         if (gameSpeed < 5.0f)
         {

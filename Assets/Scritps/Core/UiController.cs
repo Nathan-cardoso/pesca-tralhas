@@ -4,22 +4,22 @@ using TMPro;
 
 public class UiController : MonoBehaviour
 {
-    // Scripts
+    [Header("Scripts")]
     [SerializeField] private PlayerController playerController;
     [SerializeField] private GameManager gameManager;
 
 
-    [Header("Canvas")]
+    [Header("Menu Principal")]
     [SerializeField] private GameObject mainMenuCanvas;
     [SerializeField] private Button startButton;
 
 
-    [Header("HUD")]
+    [Header("Game HUD")]
     [SerializeField] private GameObject hudCanvas;
     [SerializeField] private TMP_Text lifeText;
     [SerializeField] private TMP_Text scoreText;
 
-    [Header("Game Over")]
+    [Header("Game Over Canvas")]
     [SerializeField] private GameObject gameOverCanvas;
     [SerializeField] private TMP_Text gameOverScoreText;
     [SerializeField] private Button retryButton;

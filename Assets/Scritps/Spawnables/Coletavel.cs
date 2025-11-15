@@ -5,6 +5,7 @@ public class Coletavel : MonoBehaviour
     [SerializeField] private float speed = 20f;
     [SerializeField] private int score = 10; 
     private GameManager gameManager;
+    
     void Awake()
     {
         gameManager = FindAnyObjectByType<GameManager>();

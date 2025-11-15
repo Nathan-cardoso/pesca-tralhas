@@ -866,10 +866,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barco
       objectReference: {fileID: 0}
-    - target: {fileID: 2832924323066982246, guid: f7cf0302cd3b22746ad88110bc54bd57, type: 3}
-      propertyPath: gameManager
-      value: 
-      objectReference: {fileID: 1576224414}
     - target: {fileID: 5014759098225862015, guid: f7cf0302cd3b22746ad88110bc54bd57, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -929,11 +925,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1174129408731545011, guid: 90ef35189729c2548b1f8a682375a0a5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -128.3
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 1174129408731545011, guid: 90ef35189729c2548b1f8a682375a0a5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 119.1
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 1174129408731545011, guid: 90ef35189729c2548b1f8a682375a0a5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -941,23 +937,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1174129408731545011, guid: 90ef35189729c2548b1f8a682375a0a5, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.6591856
+      value: 0.64085644
       objectReference: {fileID: 0}
     - target: {fileID: 1174129408731545011, guid: 90ef35189729c2548b1f8a682375a0a5, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.25587973
+      value: 0.29883623
       objectReference: {fileID: 0}
     - target: {fileID: 1174129408731545011, guid: 90ef35189729c2548b1f8a682375a0a5, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.6591856
+      value: 0.64085644
       objectReference: {fileID: 0}
     - target: {fileID: 1174129408731545011, guid: 90ef35189729c2548b1f8a682375a0a5, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.25587973
+      value: -0.29883623
       objectReference: {fileID: 0}
     - target: {fileID: 1174129408731545011, guid: 90ef35189729c2548b1f8a682375a0a5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 42.43
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1174129408731545011, guid: 90ef35189729c2548b1f8a682375a0a5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y

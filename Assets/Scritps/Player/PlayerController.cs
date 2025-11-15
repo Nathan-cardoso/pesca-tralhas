@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed = 45f;
     [SerializeField] GameManager gameManager;
 
-    private int xLimit = 95;
+    private int xLimit = 92;
     private CharacterController characterController;
     private Vector2 moveInput;
     private Vector3 velocity;
@@ -33,17 +33,15 @@ public class PlayerController : MonoBehaviour
 
     void MovePlayer()
     {
-        if (transform.position.x <= -(xLimit + 15))
-        {
-            transform.position = new Vector3(-(xLimit + 15), transform.position.y, transform.position.z);
-        }
-        else if (transform.position.x >= xLimit)
-        {
-            transform.position = new Vector3(xLimit, transform.position.y, transform.position.z);
-        }
+        float horizontalInput = moveInput.x;
 
-        float verticalInput = moveInput.x;
-        transform.Translate(Vector3.right * Time.deltaTime * speed * verticalInput);
+        // Movimento do personagem
+        transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
+
+        // Limita o X do personagem entre -(xLimit + 15) e xLimit
+        float clampedX = Mathf.Clamp(transform.position.x, -(xLimit + 10), xLimit);
+
+        transform.position = new Vector3(clampedX, transform.position.y, transform.position.z);
     }
 
     private void OnTriggerEnter(Collider other)
