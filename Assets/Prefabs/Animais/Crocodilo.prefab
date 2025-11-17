@@ -72,6 +72,30 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 6695110085048189527, guid: 4fc43bf9e374486428da58b65fabe45d, type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6695110085048189527, guid: 4fc43bf9e374486428da58b65fabe45d, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6695110085048189527, guid: 4fc43bf9e374486428da58b65fabe45d, type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6695110085048189527, guid: 4fc43bf9e374486428da58b65fabe45d, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6695110085048189527, guid: 4fc43bf9e374486428da58b65fabe45d, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6695110085048189527, guid: 4fc43bf9e374486428da58b65fabe45d, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

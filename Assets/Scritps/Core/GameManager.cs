@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     [Header("Spawnables")]
     [SerializeField] private GameObject[] obstacles;
     [SerializeField] private GameObject[] collectibles;
+    [SerializeField] private GameObject lifeDuck;
 
     [Header("Scripts")]
     [SerializeField] private PlayerController playerController;
@@ -15,8 +16,10 @@ public class GameManager : MonoBehaviour
     [Header("Game Variables")]
     [SerializeField] private float spawnInterval = 3f; 
     [SerializeField] private float gameSpeed = 1f;    
-    private float xSpawnVariation = 95f;
+    [SerializeField] private float oldGameSpeed = 1f;    
+    private float xSpawnVariation = 80f;
     private float zSpawnPos = -250f;
+    private bool isGamePaused = false;
     private Coroutine spawnCoroutine;
     private Coroutine speedCoroutine;
 
@@ -80,25 +83,42 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning("Nenhum obstáculo ou coletável foi configurado no Spawner!");
             return;
         }
+        if (isGamePaused)
+        {
+            return;
+        }
 
         int index;
         bool spawnCollectible = UnityEngine.Random.Range(0, 10) <= 4;
 
         if (spawnCollectible)
         {
-            index = UnityEngine.Random.Range(0, collectibles.Length);
-            Vector3 spawnPos = new Vector3(
-                UnityEngine.Random.Range(-(xSpawnVariation + 10), xSpawnVariation),
-                collectibles[index].transform.position.y,
-                zSpawnPos
-            );
-            Instantiate(collectibles[index], spawnPos, collectibles[index].transform.rotation);
+
+            bool spawnLifeDuck = UnityEngine.Random.Range(0, 10) <= 0;
+            if (spawnLifeDuck)
+            {     
+                Vector3 spawnPos = new Vector3(
+                    UnityEngine.Random.Range(-(xSpawnVariation + 20), xSpawnVariation),
+                    lifeDuck.transform.position.y,
+                    zSpawnPos
+                );
+                Instantiate(lifeDuck, spawnPos, lifeDuck.transform.rotation);
+            }
+            else {
+                index = UnityEngine.Random.Range(0, collectibles.Length);
+                Vector3 spawnPos = new Vector3(
+                    UnityEngine.Random.Range(-(xSpawnVariation + 20), xSpawnVariation),
+                    collectibles[index].transform.position.y,
+                    zSpawnPos
+                );
+                Instantiate(collectibles[index], spawnPos, collectibles[index].transform.rotation);
+            }
         }
         else
         {
             index = UnityEngine.Random.Range(0, obstacles.Length);
             Vector3 spawnPos = new Vector3(
-                UnityEngine.Random.Range(-(xSpawnVariation + 10), xSpawnVariation),
+                UnityEngine.Random.Range(-(xSpawnVariation + 20), xSpawnVariation),
                 obstacles[index].transform.position.y,
                 zSpawnPos
             );
@@ -116,18 +136,34 @@ public class GameManager : MonoBehaviour
 
     public void IncreaseGameDifficulty()
     {
-        if (gameSpeed < 5.0f)
-        {
-            if(spawnInterval > 0.4f)
+        if (!isGamePaused)
+        {        
+            if (gameSpeed < 5.0f)
             {
-                spawnInterval -= 0.01f;
+                if(spawnInterval > 0.4f)
+                {
+                    spawnInterval -= 0.01f;
+                }
+                gameSpeed += 0.01f;
             }
-            gameSpeed += 0.01f;
         }
     }
 
     public float GetGameSpeed()
     {
         return gameSpeed;
+    }
+
+    public void PlayGame()
+    {
+        isGamePaused = false;
+        gameSpeed = oldGameSpeed;
+    }
+    
+    public void PauseGame()
+    {
+        isGamePaused = true;
+        oldGameSpeed = gameSpeed;
+        gameSpeed = 0;
     }
 }

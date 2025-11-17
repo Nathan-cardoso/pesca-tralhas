@@ -56,10 +56,12 @@ MonoBehaviour:
   - {fileID: 6274177713302961289, guid: 8d9d48b7f227c25419aaf5c864b9c9e2, type: 3}
   - {fileID: 6926290947502395709, guid: 6aba8bc7d29859e43b4217b1137dbb9b, type: 3}
   - {fileID: 790301943785931260, guid: 14c80ba31fc4ffe48b2781e894755ab7, type: 3}
+  lifeDuck: {fileID: 556674266065917848, guid: 71228f61cb11d584da505460eba775da, type: 3}
   playerController: {fileID: 0}
   uiController: {fileID: 652618609043788536}
   spawnInterval: 3
   gameSpeed: 1
+  oldGameSpeed: 1
 --- !u!114 &652618609043788536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,8 +79,15 @@ MonoBehaviour:
   mainMenuCanvas: {fileID: 0}
   startButton: {fileID: 0}
   hudCanvas: {fileID: 0}
-  lifeText: {fileID: 0}
+  lifeDucks:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   scoreText: {fileID: 0}
+  playButton: {fileID: 0}
+  pauseButton: {fileID: 0}
   gameOverCanvas: {fileID: 0}
   gameOverScoreText: {fileID: 0}
   retryButton: {fileID: 0}

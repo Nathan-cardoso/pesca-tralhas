@@ -9,15 +9,17 @@ public class UiController : MonoBehaviour
     [SerializeField] private GameManager gameManager;
 
 
-    [Header("Menu Principal")]
+    [Header("Main Menu Canvas")]
     [SerializeField] private GameObject mainMenuCanvas;
     [SerializeField] private Button startButton;
 
 
-    [Header("Game HUD")]
+    [Header("Game Hud Canvas")]
     [SerializeField] private GameObject hudCanvas;
-    [SerializeField] private TMP_Text lifeText;
+    [SerializeField] private RawImage[] lifeDucks;
     [SerializeField] private TMP_Text scoreText;
+    [SerializeField] private Button playButton;
+    [SerializeField] private Button pauseButton;
 
     [Header("Game Over Canvas")]
     [SerializeField] private GameObject gameOverCanvas;
@@ -28,9 +30,10 @@ public class UiController : MonoBehaviour
     {
         gameManager = FindFirstObjectByType<GameManager>();
 
-        startButton.onClick.AddListener(OnPlayPressed);
+        startButton.onClick.AddListener(OnStartPressed);
         retryButton.onClick.AddListener(OnRetryPressed);
-
+        playButton.onClick.AddListener(OnPlayPressed);
+        pauseButton.onClick.AddListener(OnPausePressed);
         ShowMainMenu();
     }
 
@@ -56,7 +59,7 @@ public class UiController : MonoBehaviour
         gameOverCanvas.SetActive(true);
     }
 
-    private void OnPlayPressed()
+    private void OnStartPressed()
     {
         gameManager.StartGame();
     }
@@ -65,10 +68,27 @@ public class UiController : MonoBehaviour
     {
         gameManager.RestartGame();
     }
+    
+    private void OnPlayPressed()
+    {
+        gameManager.PlayGame();
+        playButton.gameObject.SetActive(false);
+        pauseButton.gameObject.SetActive(true);
+    }
+    
+    private void OnPausePressed()
+    {
+        gameManager.PauseGame();
+        pauseButton.gameObject.SetActive(false);
+        playButton.gameObject.SetActive(true);
+    }
 
     void Update()
     {
-        lifeText.text = "Vidas: " + playerController.GetLife();
+        for (int i = 0; i < lifeDucks.Length; i++)
+        {
+            lifeDucks[i].enabled = i < playerController.GetLife();
+        }
         scoreText.text = "Pontos: " + playerController.GetScore();
     }
 
