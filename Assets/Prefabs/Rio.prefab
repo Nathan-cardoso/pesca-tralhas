@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3844893124612687101}
   - component: {fileID: 6461597551907201345}
   - component: {fileID: 3512350685248435233}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Rio
   m_TagString: Untagged
   m_Icon: {fileID: 0}

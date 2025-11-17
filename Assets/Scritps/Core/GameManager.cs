@@ -1,88 +1,128 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections; 
 
 public class GameManager : MonoBehaviour
 {
     [Header("Spawnables")]
     [SerializeField] private GameObject[] obstacles;
     [SerializeField] private GameObject[] collectibles;
+    [SerializeField] private GameObject lifeDuck;
 
-    [Header("Scritps")]
-    [SerializeField] PlayerController playerController;
+    [Header("Scripts")]
+    [SerializeField] private PlayerController playerController;
     [SerializeField] private UiController uiController;
-    
+
     [Header("Game Variables")]
-    [SerializeField] private float spawnInterval = 2f; 
-    [SerializeField] private bool isGameOver = false;
-    [SerializeField] private bool isGameRunning = false;
-    private float xSpawnVariation = 93;
+    [SerializeField] private float spawnInterval = 3f; 
+    [SerializeField] private float gameSpeed = 1f;    
+    [SerializeField] private float oldGameSpeed = 1f;    
+    private float xSpawnVariation = 80f;
     private float zSpawnPos = -250f;
+    private bool isGamePaused = false;
+    private Coroutine spawnCoroutine;
+    private Coroutine speedCoroutine;
 
     void Start()
     {
-        Time.timeScale = 0f;           
-        uiController.ShowMainMenu();     
+        Time.timeScale = 0f;
+        uiController.ShowMainMenu();
     }
 
     public void StartGame()
     {
-        isGameOver = false;
         Time.timeScale = 1f;
-        uiController.ShowHUD();   
-        
-        // Nome do metodo, tempo para começar e intervalo de spawn.
-        InvokeRepeating(nameof(SpawnRandom), 2f, spawnInterval); 
+        uiController.ShowHUD();
+
+        // Inicia as corrotinas de spawn e aumento de velocidade
+        spawnCoroutine = StartCoroutine(SpawnRoutine());
+        speedCoroutine = StartCoroutine(UpdateSpeedRoutine());
     }
 
     public void GameOver()
     {
-        isGameOver = true;
         Time.timeScale = 0f;
-        uiController.ShowGameOver(); 
+        uiController.ShowGameOver();
+
+        // Para as corrotinas ao encerrar o jogo
+        if (spawnCoroutine != null) StopCoroutine(spawnCoroutine);
+        if (speedCoroutine != null) StopCoroutine(speedCoroutine);
     }
-    
+
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    private IEnumerator SpawnRoutine()
+    {
+        yield return new WaitForSeconds(2f);
+
+        while (true)
+        {
+            SpawnRandom();
+            yield return new WaitForSeconds(spawnInterval);
+        }
+    }
+
+    private IEnumerator UpdateSpeedRoutine()
+    {
+        yield return new WaitForSeconds(2f); 
+
+        while (true)
+        {
+            yield return new WaitForSeconds(1f); // Intervalo de aumento da velocidade
+            IncreaseGameDifficulty();
+        }
+    }
+
     void SpawnRandom()
     {
-        if (!isGameOver)
+        if (obstacles.Length == 0 || collectibles.Length == 0)
         {
-            if (obstacles.Length == 0 || collectibles.Length == 0)
-            {
-                Debug.LogWarning("Nenhum obstáculo ou coletável foi configurado no Spawner!");
-                return;
+            Debug.LogWarning("Nenhum obstáculo ou coletável foi configurado no Spawner!");
+            return;
+        }
+        if (isGamePaused)
+        {
+            return;
+        }
+
+        int index;
+        bool spawnCollectible = UnityEngine.Random.Range(0, 10) <= 4;
+
+        if (spawnCollectible)
+        {
+
+            bool spawnLifeDuck = UnityEngine.Random.Range(0, 10) <= 0;
+            if (spawnLifeDuck)
+            {     
+                Vector3 spawnPos = new Vector3(
+                    UnityEngine.Random.Range(-(xSpawnVariation + 20), xSpawnVariation),
+                    lifeDuck.transform.position.y,
+                    zSpawnPos
+                );
+                Instantiate(lifeDuck, spawnPos, lifeDuck.transform.rotation);
             }
-
-            int index;
-
-            // 40% de chance de spawnar um coletável
-            // 60% de chance de spawnar um obstáculo
-            if (UnityEngine.Random.Range(0, 10) <= 3)
-            {
-                // Seleciona um coletável aleatóriamente
+            else {
                 index = UnityEngine.Random.Range(0, collectibles.Length);
-
-                // Define um posição de spawn aleatória
-                Vector3 spawnPos = new Vector3(UnityEngine.Random.Range(xSpawnVariation, -(xSpawnVariation + 15)), collectibles[index].transform.position.y, zSpawnPos);
-
-                // Cria a instancia
+                Vector3 spawnPos = new Vector3(
+                    UnityEngine.Random.Range(-(xSpawnVariation + 20), xSpawnVariation),
+                    collectibles[index].transform.position.y,
+                    zSpawnPos
+                );
                 Instantiate(collectibles[index], spawnPos, collectibles[index].transform.rotation);
             }
-            else
-            {
-                // Seleciona um obstáculo aleatóriamente
-                index = UnityEngine.Random.Range(0, obstacles.Length);
-
-                // Define um posição de spawn aleatória
-                Vector3 spawnPos = new Vector3(UnityEngine.Random.Range(xSpawnVariation, -(xSpawnVariation + 15)), obstacles[index].transform.position.y, zSpawnPos);
-
-                // Cria a instancia
-                Instantiate(obstacles[index], spawnPos, obstacles[index].transform.rotation);
-            }
-
+        }
+        else
+        {
+            index = UnityEngine.Random.Range(0, obstacles.Length);
+            Vector3 spawnPos = new Vector3(
+                UnityEngine.Random.Range(-(xSpawnVariation + 20), xSpawnVariation),
+                obstacles[index].transform.position.y,
+                zSpawnPos
+            );
+            Instantiate(obstacles[index], spawnPos, obstacles[index].transform.rotation);
         }
     }
 
@@ -93,9 +133,37 @@ public class GameManager : MonoBehaviour
             GameOver();
         }
     }
-    
-    public bool GetGameOver()
+
+    public void IncreaseGameDifficulty()
     {
-        return isGameOver;
+        if (!isGamePaused)
+        {        
+            if (gameSpeed < 5.0f)
+            {
+                if(spawnInterval > 0.4f)
+                {
+                    spawnInterval -= 0.01f;
+                }
+                gameSpeed += 0.01f;
+            }
+        }
+    }
+
+    public float GetGameSpeed()
+    {
+        return gameSpeed;
+    }
+
+    public void PlayGame()
+    {
+        isGamePaused = false;
+        gameSpeed = oldGameSpeed;
+    }
+    
+    public void PauseGame()
+    {
+        isGamePaused = true;
+        oldGameSpeed = gameSpeed;
+        gameSpeed = 0;
     }
 }
