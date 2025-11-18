@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private int life = 5;
     [SerializeField] private int score = 0;
+    [SerializeField] GameManager gameManager;
 
     private int xLimit = 80;
     private CharacterController characterController;
@@ -34,7 +35,21 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (Keyboard.current.spaceKey.wasPressedThisFrame || Keyboard.current.pKey.wasPressedThisFrame)
+        {
+            if (!gameManager.GetIsGamePaused())
+            {
+                gameManager.PauseGame();
+            }
+            else
+            {
+                gameManager.PlayGame();
+            }
+        }
+        if (gameManager.GetIsGamePaused())
+            return;
         MovePlayer();
+        BoatTilt();
     }
 
     void MovePlayer()
@@ -59,16 +74,7 @@ public class PlayerController : MonoBehaviour
             currentSpeed = 0f;
         }
 
-        /* 
-            Tilt
-        */
-        float targetTilt = -(currentSpeed / maxSpeed) * tiltAmount;
-        Quaternion targetRotation = Quaternion.Euler(0, targetTilt, targetTilt);
-        transform.rotation = Quaternion.Lerp(
-            transform.rotation,
-            targetRotation,
-            tiltSpeed * Time.deltaTime
-        );
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -96,6 +102,17 @@ public class PlayerController : MonoBehaviour
                 life++;
             }
         }
+    }
+
+    private void BoatTilt()
+    {
+        float targetTilt = -(currentSpeed / maxSpeed) * tiltAmount;
+        Quaternion targetRotation = Quaternion.Euler(0, targetTilt, targetTilt);
+        transform.rotation = Quaternion.Lerp(
+            transform.rotation,
+            targetRotation,
+            tiltSpeed * Time.deltaTime
+        );
     }
 
     public int GetLife()

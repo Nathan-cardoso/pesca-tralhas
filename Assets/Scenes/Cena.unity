@@ -607,6 +607,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdbd22852842aa8409af76203015a785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoatController
+--- !u!114 &1899980565 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 717403758026583213, guid: 206d39f40c51a184797e2e06331a31b9, type: 3}
+  m_PrefabInstance: {fileID: 2988643508311974733}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7853025743c56c4c955db4ebb9af15d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
 --- !u!1001 &2014321851
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -945,6 +956,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barco
       objectReference: {fileID: 0}
+    - target: {fileID: 2832924323066982246, guid: f7cf0302cd3b22746ad88110bc54bd57, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1899980565}
     - target: {fileID: 5014759098225862015, guid: f7cf0302cd3b22746ad88110bc54bd57, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

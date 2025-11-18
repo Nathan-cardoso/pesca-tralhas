@@ -116,6 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BoatController
   life: 5
   score: 0
+  gameManager: {fileID: 0}
   maxSpeed: 20
   acceleration: 15
   deceleration: 10

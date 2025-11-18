@@ -72,15 +72,25 @@ public class UiController : MonoBehaviour
     private void OnPlayPressed()
     {
         gameManager.PlayGame();
-        playButton.gameObject.SetActive(false);
-        pauseButton.gameObject.SetActive(true);
     }
     
     private void OnPausePressed()
     {
         gameManager.PauseGame();
-        pauseButton.gameObject.SetActive(false);
-        playButton.gameObject.SetActive(true);
+    }
+
+    public void AtualizePlayPauseButton()
+    {
+        if (gameManager.GetIsGamePaused())
+        {
+            playButton.gameObject.SetActive(true);
+            pauseButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            playButton.gameObject.SetActive(false);
+            pauseButton.gameObject.SetActive(true);
+        }
     }
 
     void Update()

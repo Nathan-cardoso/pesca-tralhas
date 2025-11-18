@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
         if (spawnCollectible)
         {
 
-            bool spawnLifeDuck = UnityEngine.Random.Range(0, 10) <= 0;
+            bool spawnLifeDuck = UnityEngine.Random.Range(0, 20) <= 0;
             if (spawnLifeDuck)
             {     
                 Vector3 spawnPos = new Vector3(
@@ -154,10 +154,16 @@ public class GameManager : MonoBehaviour
         return gameSpeed;
     }
 
+    public bool GetIsGamePaused()
+    {
+        return isGamePaused;
+    }
+
     public void PlayGame()
     {
         isGamePaused = false;
         gameSpeed = oldGameSpeed;
+        uiController.AtualizePlayPauseButton();
     }
     
     public void PauseGame()
@@ -165,5 +171,6 @@ public class GameManager : MonoBehaviour
         isGamePaused = true;
         oldGameSpeed = gameSpeed;
         gameSpeed = 0;
+        uiController.AtualizePlayPauseButton();
     }
 }
