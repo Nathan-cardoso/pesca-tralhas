@@ -5,7 +5,6 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource audioSourceMusica;
     [SerializeField] private AudioClip trilhaSonora;
     
-
     private bool isGameMuted = false;
 
     void Start()
@@ -36,5 +35,10 @@ public class AudioManager : MonoBehaviour
             audioSourceMusica.UnPause();
             isGameMuted = false;
         }
+    }
+
+    public bool GetIsGameMuted()
+    {
+        return isGameMuted;
     }
 }

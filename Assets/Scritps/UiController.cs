@@ -14,8 +14,6 @@ public class UiController : MonoBehaviour
     [Header("Main Menu Canvas")]
     [SerializeField] private GameObject mainMenuCanvas;
     [SerializeField] private Button startButton;
-    [SerializeField] private Button muteButtonMenu;
-
 
     [Header("Game Hud Canvas")]
     [SerializeField] private GameObject hudCanvas;
@@ -23,13 +21,11 @@ public class UiController : MonoBehaviour
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private Button playButton;
     [SerializeField] private Button pauseButton;
-    [SerializeField] private Button muteButtonHud;
 
     [Header("Game Over Canvas")]
     [SerializeField] private GameObject gameOverCanvas;
     [SerializeField] private TMP_Text gameOverScoreText;
     [SerializeField] private Button retryButton;
-
     
     void Awake()
     {
@@ -39,8 +35,6 @@ public class UiController : MonoBehaviour
         retryButton.onClick.AddListener(OnRetryPressed);
         playButton.onClick.AddListener(OnPlayPressed);
         pauseButton.onClick.AddListener(OnPausePressed);
-        muteButtonMenu.onClick.AddListener(OnMutePressed);
-        muteButtonHud.onClick.AddListener(OnMutePressed);
         ShowMainMenu();
     }
 
@@ -108,11 +102,4 @@ public class UiController : MonoBehaviour
         }
         scoreText.text = "Pontos: " + playerController.GetScore();
     }
-
-    public void OnMutePressed()
-    {
-
-        audioManager.MuteGame(); 
-    }
-
 }

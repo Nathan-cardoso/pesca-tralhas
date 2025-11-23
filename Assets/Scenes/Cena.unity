@@ -119,17 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &117887278 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4479034242355592487, guid: 4cc94a5dba1bbf449a4ea3030f03d195, type: 3}
-  m_PrefabInstance: {fileID: 198663775209447964}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!114 &213782383 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5888959512474758465, guid: 04574be91f8a58e488bf74b3872d02fd, type: 3}
@@ -461,6 +450,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6606406742242643420, guid: b9519f4cab389a848bde600f95225d4f, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 213782383}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -585,6 +578,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3097739526643826499, guid: 3238fc5aeeaff1a42a0b6699ef2dd2ec, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 213782383}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -748,28 +745,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
---- !u!114 &2079693897 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6169065389587376468, guid: b9519f4cab389a848bde600f95225d4f, type: 3}
-  m_PrefabInstance: {fileID: 625138830}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
---- !u!114 &2079693898 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1607435779850223378, guid: b9519f4cab389a848bde600f95225d4f, type: 3}
-  m_PrefabInstance: {fileID: 625138830}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1001 &198663775209447964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -862,6 +837,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4015080397313699436, guid: 4cc94a5dba1bbf449a4ea3030f03d195, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 213782383}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -886,7 +865,7 @@ PrefabInstance:
     - target: {fileID: 652618609043788536, guid: 206d39f40c51a184797e2e06331a31b9, type: 3}
       propertyPath: muteButton
       value: 
-      objectReference: {fileID: 2079693897}
+      objectReference: {fileID: 0}
     - target: {fileID: 652618609043788536, guid: 206d39f40c51a184797e2e06331a31b9, type: 3}
       propertyPath: playButton
       value: 
@@ -910,7 +889,7 @@ PrefabInstance:
     - target: {fileID: 652618609043788536, guid: 206d39f40c51a184797e2e06331a31b9, type: 3}
       propertyPath: muteButtonHud
       value: 
-      objectReference: {fileID: 117887278}
+      objectReference: {fileID: 0}
     - target: {fileID: 652618609043788536, guid: 206d39f40c51a184797e2e06331a31b9, type: 3}
       propertyPath: gameOverCanvas
       value: 
@@ -922,11 +901,11 @@ PrefabInstance:
     - target: {fileID: 652618609043788536, guid: 206d39f40c51a184797e2e06331a31b9, type: 3}
       propertyPath: muteButtonMenu
       value: 
-      objectReference: {fileID: 2079693897}
+      objectReference: {fileID: 0}
     - target: {fileID: 652618609043788536, guid: 206d39f40c51a184797e2e06331a31b9, type: 3}
       propertyPath: muteButtonImage
       value: 
-      objectReference: {fileID: 2079693898}
+      objectReference: {fileID: 0}
     - target: {fileID: 652618609043788536, guid: 206d39f40c51a184797e2e06331a31b9, type: 3}
       propertyPath: playerController
       value: 
