@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class MuteButtonController : MonoBehaviour
@@ -13,11 +14,26 @@ public class MuteButtonController : MonoBehaviour
     void Awake()
     {
         muteButton.onClick.AddListener(OnMutePressed);
+        AtualizeIcon();
     }
 
-    private void OnMutePressed()
+    public void OnMutePressed()
     {
         audioManager.MuteGame();
+        AtualizeIcon();
+    }
+
+    public void AtualizeIcon()
+    {
         icon.sprite = audioManager.GetIsGameMuted() ? muteIcon : UnMuteIcon ;
     }
+
+    void Update()
+    {
+        if (Keyboard.current.mKey.wasPressedThisFrame)
+        {
+            OnMutePressed();
+        }
+    }
+
 }

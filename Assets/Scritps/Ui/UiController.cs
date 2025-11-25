@@ -7,20 +7,18 @@ public class UiController : MonoBehaviour
     [Header("Scripts")]
     [SerializeField] private PlayerController playerController;
     [SerializeField] private GameManager gameManager;
-    
     [SerializeField] private AudioManager audioManager;
 
 
     [Header("Main Menu Canvas")]
     [SerializeField] private GameObject mainMenuCanvas;
     [SerializeField] private Button startButton;
+    [SerializeField] private Button exitButton;
 
     [Header("Game Hud Canvas")]
     [SerializeField] private GameObject hudCanvas;
     [SerializeField] private RawImage[] lifeDucks;
     [SerializeField] private TMP_Text scoreText;
-    [SerializeField] private Button playButton;
-    [SerializeField] private Button pauseButton;
 
     [Header("Game Over Canvas")]
     [SerializeField] private GameObject gameOverCanvas;
@@ -32,9 +30,8 @@ public class UiController : MonoBehaviour
         gameManager = FindFirstObjectByType<GameManager>();
 
         startButton.onClick.AddListener(OnStartPressed);
+        exitButton.onClick.AddListener(OnExitPressed);
         retryButton.onClick.AddListener(OnRetryPressed);
-        playButton.onClick.AddListener(OnPlayPressed);
-        pauseButton.onClick.AddListener(OnPausePressed);
         ShowMainMenu();
     }
 
@@ -65,35 +62,16 @@ public class UiController : MonoBehaviour
         gameManager.StartGame();
     }
 
+    private void OnExitPressed()
+    {
+        gameManager.ExitGame();
+    }
+    
     private void OnRetryPressed()
     {
         gameManager.RestartGame();
     }
     
-    private void OnPlayPressed()
-    {
-        gameManager.PlayGame();
-    }
-    
-    private void OnPausePressed()
-    {
-        gameManager.PauseGame();
-    }
-
-    public void AtualizePlayPauseButton()
-    {
-        if (gameManager.GetIsGamePaused())
-        {
-            playButton.gameObject.SetActive(true);
-            pauseButton.gameObject.SetActive(false);
-        }
-        else
-        {
-            playButton.gameObject.SetActive(false);
-            pauseButton.gameObject.SetActive(true);
-        }
-    }
-
     void Update()
     {
         for (int i = 0; i < lifeDucks.Length; i++)

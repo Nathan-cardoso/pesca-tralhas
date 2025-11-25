@@ -76,6 +76,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UiController
   playerController: {fileID: 0}
   gameManager: {fileID: 717403758026583213}
+  audioManager: {fileID: 0}
   mainMenuCanvas: {fileID: 0}
   startButton: {fileID: 0}
   hudCanvas: {fileID: 0}
@@ -86,8 +87,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   scoreText: {fileID: 0}
-  playButton: {fileID: 0}
-  pauseButton: {fileID: 0}
   gameOverCanvas: {fileID: 0}
   gameOverScoreText: {fileID: 0}
   retryButton: {fileID: 0}

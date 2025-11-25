@@ -35,19 +35,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Keyboard.current.spaceKey.wasPressedThisFrame || Keyboard.current.pKey.wasPressedThisFrame)
-        {
-            if (!gameManager.GetIsGamePaused())
-            {
-                gameManager.PauseGame();
-            }
-            else
-            {
-                gameManager.PlayGame();
-            }
-        }
         if (gameManager.GetIsGamePaused())
             return;
+
         MovePlayer();
         BoatTilt();
     }

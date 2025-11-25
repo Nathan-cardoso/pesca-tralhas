@@ -38,6 +38,11 @@ public class GameManager : MonoBehaviour
         spawnCoroutine = StartCoroutine(SpawnRoutine());
         speedCoroutine = StartCoroutine(UpdateSpeedRoutine());
     }
+    
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 
     public void GameOver()
     {
@@ -159,18 +164,18 @@ public class GameManager : MonoBehaviour
         return isGamePaused;
     }
 
-    public void PlayGame()
+    public void PlayPauseGame()
     {
-        isGamePaused = false;
-        gameSpeed = oldGameSpeed;
-        uiController.AtualizePlayPauseButton();
-    }
-    
-    public void PauseGame()
-    {
-        isGamePaused = true;
-        oldGameSpeed = gameSpeed;
-        gameSpeed = 0;
-        uiController.AtualizePlayPauseButton();
+        if (isGamePaused)
+        {
+            isGamePaused = false;
+            gameSpeed = oldGameSpeed;
+        } else
+        {
+            isGamePaused = true;
+            oldGameSpeed = gameSpeed;
+            gameSpeed = 0;
+        }
+        
     }
 }

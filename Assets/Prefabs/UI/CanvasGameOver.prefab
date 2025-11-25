@@ -35,7 +35,7 @@ RectTransform:
   - {fileID: 5569624298364220723}
   - {fileID: 6346847910509273691}
   - {fileID: 1158851071414293913}
-  - {fileID: 8507202253188057234}
+  - {fileID: 3130896707571409464}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -773,7 +773,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1001 &8735288870737901767
+--- !u!1001 &2613618740676776557
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -807,11 +807,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1096166441149542485, guid: 628667fca01efb34ebcaa8b455ad8e78, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 37
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 1096166441149542485, guid: 628667fca01efb34ebcaa8b455ad8e78, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 29
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 1096166441149542485, guid: 628667fca01efb34ebcaa8b455ad8e78, type: 3}
       propertyPath: m_LocalPosition.x
@@ -843,11 +843,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1096166441149542485, guid: 628667fca01efb34ebcaa8b455ad8e78, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1096166441149542485, guid: 628667fca01efb34ebcaa8b455ad8e78, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1096166441149542485, guid: 628667fca01efb34ebcaa8b455ad8e78, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -865,13 +865,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: MuteButton
       objectReference: {fileID: 0}
+    - target: {fileID: 3009876884180781281, guid: 628667fca01efb34ebcaa8b455ad8e78, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c59bd6a2c44d8bb49ab861f5868f674f, type: 3}
+    - target: {fileID: 6036120226910422916, guid: 628667fca01efb34ebcaa8b455ad8e78, type: 3}
+      propertyPath: muteIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: fd1b521ee905c0e49b7d981779ce2b7c, type: 3}
+    - target: {fileID: 6036120226910422916, guid: 628667fca01efb34ebcaa8b455ad8e78, type: 3}
+      propertyPath: UnMuteIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: c59bd6a2c44d8bb49ab861f5868f674f, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 628667fca01efb34ebcaa8b455ad8e78, type: 3}
---- !u!224 &8507202253188057234 stripped
+--- !u!224 &3130896707571409464 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1096166441149542485, guid: 628667fca01efb34ebcaa8b455ad8e78, type: 3}
-  m_PrefabInstance: {fileID: 8735288870737901767}
+  m_PrefabInstance: {fileID: 2613618740676776557}
   m_PrefabAsset: {fileID: 0}
