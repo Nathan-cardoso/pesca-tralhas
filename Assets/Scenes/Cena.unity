@@ -141,11 +141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cea35eb8e84df0c4496282a761a0cf6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
---- !u!1 &220499374 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5109577622507730872, guid: b9519f4cab389a848bde600f95225d4f, type: 3}
-  m_PrefabInstance: {fileID: 625138830}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &267007872 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7331606012803693291, guid: b9519f4cab389a848bde600f95225d4f, type: 3}
@@ -838,6 +833,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.RawImage
+--- !u!1 &1638238001 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6826122089908128943, guid: b9519f4cab389a848bde600f95225d4f, type: 3}
+  m_PrefabInstance: {fileID: 625138830}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1675785534 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8227864726462530166, guid: b9519f4cab389a848bde600f95225d4f, type: 3}
+  m_PrefabInstance: {fileID: 625138830}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1685270542 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7979944636341907678, guid: b9519f4cab389a848bde600f95225d4f, type: 3}
+  m_PrefabInstance: {fileID: 625138830}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1769269975 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2832924323066982246, guid: f7cf0302cd3b22746ad88110bc54bd57, type: 3}
@@ -1065,13 +1075,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 778580350}
     - target: {fileID: 652618609043788536, guid: 206d39f40c51a184797e2e06331a31b9, type: 3}
+      propertyPath: tutorialPanels.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 652618609043788536, guid: 206d39f40c51a184797e2e06331a31b9, type: 3}
       propertyPath: 'tutorialPanels.Array.data[0]'
       value: 
       objectReference: {fileID: 277762170}
     - target: {fileID: 652618609043788536, guid: 206d39f40c51a184797e2e06331a31b9, type: 3}
       propertyPath: 'tutorialPanels.Array.data[1]'
       value: 
-      objectReference: {fileID: 220499374}
+      objectReference: {fileID: 1638238001}
+    - target: {fileID: 652618609043788536, guid: 206d39f40c51a184797e2e06331a31b9, type: 3}
+      propertyPath: 'tutorialPanels.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1675785534}
+    - target: {fileID: 652618609043788536, guid: 206d39f40c51a184797e2e06331a31b9, type: 3}
+      propertyPath: 'tutorialPanels.Array.data[3]'
+      value: 
+      objectReference: {fileID: 1685270542}
     - target: {fileID: 717403758026583213, guid: 206d39f40c51a184797e2e06331a31b9, type: 3}
       propertyPath: playerController
       value: 

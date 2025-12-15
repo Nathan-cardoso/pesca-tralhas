@@ -4,14 +4,11 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-
+    
+    [Header("Player Setings")]
     [SerializeField] private int life = 5;
     [SerializeField] private int score = 0;
     [SerializeField] GameManager gameManager;
-
-    private int xLimit = 80;
-    private CharacterController characterController;
-    private Vector2 moveInput;
 
     [Header("Movement Setings")]
     [SerializeField] private float maxSpeed = 20f; 
@@ -22,6 +19,10 @@ public class PlayerController : MonoBehaviour
     [Header("Tilt Setings")]
     [SerializeField] private float tiltAmount = 15f;     
     [SerializeField] private float tiltSpeed = 30f;      
+
+    private int xLimit = 80;
+    private CharacterController characterController;
+    private Vector2 moveInput;
 
     void Start()
     {
