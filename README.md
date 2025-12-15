@@ -19,6 +19,8 @@ A documentação deste projeto está disponível tanto neste repositório, no di
 * <a href="https://docs.google.com/document/d/1ePSxBtEiT_OP3q5Z9RrVRkYVC2b9S9_KObNT6CYY2FI/edit?usp=sharing">Diagrama de Classes</a>
 * <a href="https://docs.google.com/document/d/1FO-ZlrtynUhW5ADhvnJKIJnZVRrD4iLVByj1ySucxtA/edit?usp=sharing" target="_blank"> Plano de Teste </a>
 * <a href="https://www.canva.com/design/DAG0RaaQl-c/j3VoUPiw_xpooMdS5lpmrw/edit?utm_content=DAG0RaaQl-c&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton">Primeira Apresentação</a>
+* <a href="https://pt.overleaf.com/read/ytqrqcvxgkzj#3899d6">Artigo</a>
+
 
 ### Colaboradores
 <table align="center">
