@@ -4,12 +4,15 @@ public class AudioManager : MonoBehaviour
 {
     [SerializeField] private AudioSource audioSourceMusica;
     [SerializeField] private AudioClip trilhaSonora;
+    [SerializeField] private MuteButtonController muteButtonController;
     
     private bool isGameMuted = false;
 
     void Start()
     {
         PlayTrilhaSonora();
+        MuteGame();
+        muteButtonController.AtualizeIcon();
     }
 
     void PlayTrilhaSonora()

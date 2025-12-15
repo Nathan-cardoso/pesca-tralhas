@@ -51,10 +51,21 @@ MonoBehaviour:
   - {fileID: 3752377644676007330, guid: 8a41316128bdc694a9ce6d084f265a1f, type: 3}
   - {fileID: 3344274581015921583, guid: 25665184ae9b4984bab0b124484c4f94, type: 3}
   collectibles:
+  - {fileID: 1916329550425846059, guid: 365a0cd52c1ed8a4cba1fcfce8f7f582, type: 3}
+  - {fileID: 3311088986052992821, guid: 6962ff100d9707749b1c521c2c492e88, type: 3}
+  - {fileID: 2559588991136248414, guid: b95f9ef8c374f174e8ab0d6465e0e4ae, type: 3}
   - {fileID: 3445752528753996530, guid: fb053e33c9ee0a64e83feba6961d33b2, type: 3}
+  - {fileID: 3024162468990458545, guid: c5198a30ad8ccd346b8e678d207573f9, type: 3}
   - {fileID: 5961019071863848060, guid: ff02e2368fb8ed3499f026b1e8dbc687, type: 3}
+  - {fileID: 6219838701570473131, guid: c2735e9dd5ad3204d89dcb4d6c8324ea, type: 3}
+  - {fileID: 8154517357485505017, guid: ebc9583d1c68973478c95c107ed3d953, type: 3}
   - {fileID: 6274177713302961289, guid: 8d9d48b7f227c25419aaf5c864b9c9e2, type: 3}
+  - {fileID: 5860099722455326680, guid: 3357ace3854154442b041dfbf9189607, type: 3}
+  - {fileID: 5548589764229456876, guid: 2c6cffb04ddf5e047af289f3efc3e3e3, type: 3}
   - {fileID: 6926290947502395709, guid: 6aba8bc7d29859e43b4217b1137dbb9b, type: 3}
+  - {fileID: 1167159144055903642, guid: bb97a9b8f3a153345ae8e3d00c760dfc, type: 3}
+  - {fileID: 3800441332527854190, guid: abd4620618be0664b810f7fc3189b7e5, type: 3}
+  - {fileID: 6966171654563773360, guid: a61334b080580684e8689ea70f267bac, type: 3}
   - {fileID: 790301943785931260, guid: 14c80ba31fc4ffe48b2781e894755ab7, type: 3}
   lifeDuck: {fileID: 556674266065917848, guid: 71228f61cb11d584da505460eba775da, type: 3}
   playerController: {fileID: 0}
@@ -79,6 +90,8 @@ MonoBehaviour:
   audioManager: {fileID: 0}
   mainMenuCanvas: {fileID: 0}
   startButton: {fileID: 0}
+  helpButton: {fileID: 0}
+  exitButton: {fileID: 0}
   hudCanvas: {fileID: 0}
   lifeDucks:
   - {fileID: 0}
@@ -90,3 +103,10 @@ MonoBehaviour:
   gameOverCanvas: {fileID: 0}
   gameOverScoreText: {fileID: 0}
   retryButton: {fileID: 0}
+  ModalScreen: {fileID: 0}
+  tutorialExitButton: {fileID: 0}
+  tutorialNextButton: {fileID: 0}
+  tutorialPreviousButton: {fileID: 0}
+  tutorialPanels:
+  - {fileID: 0}
+  - {fileID: 0}

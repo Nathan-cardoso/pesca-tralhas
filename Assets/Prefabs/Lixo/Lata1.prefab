@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5d01ed81101a4c649be7b70e17809e46, type: 3}
       propertyPath: m_Name
-      value: Lata
+      value: Lata1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5d01ed81101a4c649be7b70e17809e46, type: 3}
       propertyPath: m_TagString
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Collectible
   speed: 20
-  score: 20
+  score: 30
 --- !u!65 &1284565548540657659
 BoxCollider:
   m_ObjectHideFlags: 0

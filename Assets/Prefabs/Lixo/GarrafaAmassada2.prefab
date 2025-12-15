@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &6807369587702153517
+--- !u!1001 &6525759332298555898
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -34,19 +34,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7f06e4a6a710a2443a5d5966d85c95e4, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5
+      value: 0.1770454
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7f06e4a6a710a2443a5d5966d85c95e4, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.5
+      value: -0.6845838
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7f06e4a6a710a2443a5d5966d85c95e4, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.5
+      value: 0.6845838
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7f06e4a6a710a2443a5d5966d85c95e4, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.5
+      value: -0.1770454
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7f06e4a6a710a2443a5d5966d85c95e4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7f06e4a6a710a2443a5d5966d85c95e4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
+      value: 151
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7f06e4a6a710a2443a5d5966d85c95e4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7f06e4a6a710a2443a5d5966d85c95e4, type: 3}
       propertyPath: m_Name
-      value: GarrafaAmassada
+      value: GarrafaAmassada2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7f06e4a6a710a2443a5d5966d85c95e4, type: 3}
       propertyPath: m_TagString
@@ -78,23 +78,23 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7f06e4a6a710a2443a5d5966d85c95e4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6290208335205572567}
+      addedObject: {fileID: 5629625164973485093}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7f06e4a6a710a2443a5d5966d85c95e4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5271684543173619130}
+      addedObject: {fileID: 5946524833946789188}
   m_SourcePrefab: {fileID: 100100000, guid: 7f06e4a6a710a2443a5d5966d85c95e4, type: 3}
---- !u!1 &5961019071863848060 stripped
+--- !u!1 &6219838701570473131 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7f06e4a6a710a2443a5d5966d85c95e4, type: 3}
-  m_PrefabInstance: {fileID: 6807369587702153517}
+  m_PrefabInstance: {fileID: 6525759332298555898}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6290208335205572567
+--- !u!114 &5629625164973485093
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5961019071863848060}
+  m_GameObject: {fileID: 6219838701570473131}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1cdcf7058a321284fb711fd599469994, type: 3}
@@ -102,13 +102,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Collectible
   speed: 20
   score: 5
---- !u!65 &5271684543173619130
+--- !u!65 &5946524833946789188
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5961019071863848060}
+  m_GameObject: {fileID: 6219838701570473131}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
